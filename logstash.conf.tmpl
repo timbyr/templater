@@ -1,0 +1,27 @@
+input {
+  {{ range $index, $element := .INPUT }}
+  {{ $index }} {
+    {{ with $element.Config }}{{ range $key, $value := $element.Config }}{{ $key }} => {{ $value.Value }}
+    {{ end }}{{ end }}
+  }{{ end }}
+}
+
+filter {
+  {{ range $index, $element := .FILTER }}
+  {{ $index }} {
+    {{ with $element.Config }}{{ range $key, $value := $element.Config }}{{ $key }} => {{ $value.Value }}
+    {{ end }}{{ end }}
+  }{{ end }}
+}
+
+output {
+  {{ range $index, $element := .OUTPUT }}
+  {{ $index }} {
+    {{ with $element.Config }}{{ range $key, $value := $element.Config }}{{ $key }} => {{ $value.Value }}
+    {{ end }}{{ end }}
+  }{{ end }}
+  elasticsearch {
+    hosts => ["elasticsearch:9200"]
+  }
+}
+

@@ -1,0 +1,10 @@
+export TEMPLATER_PREFIX=LOGSTASHCONF
+export TEMPLATER_FILE=template
+export TEMPLATER_TEMPLATE=template
+export LOGSTASHCONF_INPUT_syslog=
+export LOGSTASHCONF_INPUT_log4j2_mode=/"server/"
+export LOGSTASHCONF_INPUT_log4j2_port=7000
+export LOGSTASHCONF_INPUT_tcp_port=5001
+export LOGSTASHCONF_FILTER_mutate_convert="['priority', 'string']"
+export LOGSTASHCONF_FILTER_elasticsearch_hosts='["elasticsearch:9200"]'
+export TEMPLATER_LOGSTASHCONF_OUTPUT=$(pwd)/logstash.conf
